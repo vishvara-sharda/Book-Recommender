@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from Book_recommender import *
 from flask_cors import CORS
-
 app = Flask(__name__)
 CORS(app)
 # Routes 
