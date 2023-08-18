@@ -10,10 +10,9 @@ import numpy as np
 
 # In[26]:
 
-
-df_books=pd.read_csv('books.csv', low_memory=False)
-df_users=pd.read_csv('users.csv')
-df_ratings=pd.read_csv('ratings.csv')
+df_books=pd.read_csv('data/books.csv', low_memory=False)
+df_users=pd.read_csv('data/users.csv')
+df_ratings=pd.read_csv('data/ratings.csv')
 
 
 # In[27]:
