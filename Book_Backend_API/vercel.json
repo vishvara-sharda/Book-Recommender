@@ -1,0 +1,14 @@
+{
+    "builds": [
+        {
+            "src": "api/Book_Api.py",
+            "use": "@vercel/python"
+        }
+    ],
+    "routes": [
+        {
+            "src": "/(.*)",
+            "dest": "api/Book_Api.py"
+        }
+    ]
+}

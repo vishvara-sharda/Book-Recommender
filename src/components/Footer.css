@@ -1,0 +1,14 @@
+.footer{
+    width: 100%;
+    padding: 10px 25px;
+    background-color: #eeeeec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.footer>h3{
+    font-size: 18px;
+    color: #525252;
+    text-align: center;
+    margin: 0;
+}

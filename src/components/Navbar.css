@@ -1,0 +1,184 @@
+
+
+ 
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 30px 12px 20px;
+    background-color: #061231;
+
+  }
+  .hamburger{
+    display: none;
+    font-size: 200%;
+  }
+  .talk-btn{
+    border: none;
+    padding:12px 25px;
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 1.8rem;
+    background-color: #38b6ff;
+  }
+  .talk-btn:hover{
+    color: #fff;
+  }
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    gap: 7rem;
+  }
+  nav p {
+    font-size: 1.8rem;
+    text-decoration: none;
+  }
+ nav .logo-img{
+  cursor: pointer;
+    width: 120px;
+ }
+  nav ul p {
+    color: #dadada;
+    font-weight: 500;
+    margin: 0;
+  }
+  nav ul p:hover {
+    cursor: pointer;
+    color: #fff;
+    border-bottom: 2px solid #ffffff;
+  }
+  section#home {
+    height: 100vh;
+    display: grid;
+    place-items: center;
+  }
+ .list-items{
+  height: 50%;
+ }
+  #ham-menu {
+    display: none;
+  }
+  nav ul.active {
+    left: 0;
+  }
+  @media only screen and (max-width: 991px) {
+    html {
+      font-size: 56.25%;
+    }
+    header {
+      padding: 2.2rem 5rem;
+    }
+  }
+ 
+  @media only screen and (max-width: 767px) {
+    html {
+      font-size: 50%;
+    }
+    .hamburger{
+        display: block  ;
+    }
+    #ham-menu {
+      display: block;
+      color: #ffffff;
+    }
+    nav #logo,
+    #ham-menu {
+      font-size: 3.2rem;
+    }
+    nav ul {
+      background-color: #061231;
+      position: fixed;
+      left: -100vw;
+      padding-top: 50px;
+      top: 46px;
+      width: 100vw;
+      height: calc(100vh );
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      /* justify-content: space-around; */
+      transition: 1s;
+      gap: 70px;
+      z-index: 999;
+      /* opacity: 0.95; */
+    }
+  }
+  @media only screen and (max-width: 575px) {
+    nav .logo-img{
+      width: 100px;
+   }
+    html {
+      font-size: 46.87%;
+    }
+    header {
+      padding: 2rem 3rem;
+    }
+    nav ul {
+      top: 55.18px;
+      height: calc(100vh - 55.18px);
+    }
+  }
+
+
+  
+  /* The container <div> - needed to position the dropdown content */
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* Dropdown Content (Hidden by Default) */
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    /* bottom:-1px; */
+    right: -55px;
+    background-color: #f1f1f1;
+    min-width: 220px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    padding: 10px 15px;
+  }
+
+  
+  /* Links inside the dropdown */
+  .dropdown-content h5 {
+    color: black; 
+    display: block;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 1.7rem;
+    cursor: pointer;
+  }
+  .dropdown-content h5:hover {
+    color: #38b6ff;
+    display: block;
+  }
+  @media (max-width:767px) {
+    #nav-bar p{
+      font-size: 22px;
+    }
+    .dropdown-content {
+      min-width: 250px;
+      left: -90px;
+    }
+    .dropdown-content h5{
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    .talk-btn{
+      font-size: 2rem;
+    }
+  }
+  
+  /* Change color of dropdown links on hover */
+
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {background-color: #3e8e41;}

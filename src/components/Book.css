@@ -1,0 +1,25 @@
+.book-div{
+    padding: 10px 15px;
+    border: 1px solid #eeeeef;
+    margin: 15px ;
+    border-radius: 5px;
+}
+.book{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    /* width: 50%; */
+    /* height: 70%; */
+    border: none;
+}
+.book h3{
+    margin-top: 5px;
+    font-size: 20px ;
+    /* text-align: center; */
+}
+.book h4{
+    font-size: 18px ;
+    color: #383838;
+    /* text-align: center; */
+}
