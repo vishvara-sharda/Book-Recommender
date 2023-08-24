@@ -87,15 +87,6 @@ def content_based_recommender(book_title, df):
     
     return recommendations
 
-# Test the content_based_recommender function
-# recommended_books = content_based_recommender('The Da Vinci Code', df_books)
-# for book_info in recommended_books:
-#     print(book_info)
-
-
-# %% [markdown]
-# # Collobrative Filtering 
-
 # %%
 y = ratings.groupby('User-ID').count()['Book-Rating'] > 200
 users = y[y].index
@@ -211,8 +202,6 @@ def hybrid_recommendation(book_name, num_recommendations=5):
     return books_list[:num_recommendations]
 
 
-# %%
-# hybrid_recommendation("1984")
 
 # %%
 df_books
@@ -240,16 +229,4 @@ df_books["Year-Of-Publication"]
 
 # %%
 df_books["Year-Of-Publication"].unique()
-
-# %%
-
-# %%
-
-
-# %%
-
-
-# %%
-
-
 
