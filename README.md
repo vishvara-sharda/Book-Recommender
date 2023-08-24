@@ -10,6 +10,7 @@ Welcome to the Book-Recommender project repository! This project aims to provide
 - [Usage](#usage)
 - [API Endpoints](#api-endpoints)
 - [Machine Learning System](#machine-learning-system)
+- [Screenshots](#screenshots)
 - [Contributing](#contributing)
 - [License](#license)
 
