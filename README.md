@@ -58,13 +58,13 @@ Our recommendation system employs machine learning techniques to analyze user pr
 ## Screenshots
 
 ### Home Page
-![Home Page](/screenshots/home.png)
+![Home Page](https://github.com/vishvara-sharda/Book-Recommender/blob/main/images/Home.png?raw=true)
 
 ### Top Books
-![Top Books](/screenshots/top-books.png)
+![Top Books](https://github.com/vishvara-sharda/Book-Recommender/blob/main/images/Top-Books.png?raw=true)
 
 ### Search Page
-![Search Page](/screenshots/search.png)
+![Search Page](https://github.com/vishvara-sharda/Book-Recommender/blob/main/images/Search.jpg?raw=true)
 
 
 ## Contributing
