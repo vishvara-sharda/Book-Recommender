@@ -2,17 +2,19 @@ import React, { useState } from 'react'
 import "./Top.css";
 import Book from './Book';
 import { useEffect } from 'react';
+import Loader from './loader';
 
 function Search({title}) {
   const [BookData, setBookData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       try {
+        setLoading(true)
         // Replace 'API_ENDPOINT' with your actual API URL
-        const response = await fetch('http://127.0.0.1:5001/api/recommend?book_title=' + title);
+        const response = await fetch('http://127.0.0.1:8000/api/hybrid_recommendation?book_title=' + title);
 
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -20,6 +22,9 @@ function Search({title}) {
 
         const jsonData = await response.json();
         const BookData = jsonData;
+        if (BookData == "Book not found"){
+          BookData = []
+        }
         console.log(BookData)
         setBookData(BookData);
         setLoading(false);
@@ -43,7 +48,11 @@ function Search({title}) {
               <Book name={book[0]} by={book[1]} img={book[2]} key={index} />
             ))
           }
-
+          {
+            loading && (
+              <Loader />
+            )
+          }
         </div>
       </div>
     </div>

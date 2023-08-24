@@ -340,52 +340,57 @@ import itertools
 import numpy as np
 
 def hybrid_recommendation(book_name, num_recommendations=5):
-    recommended_books_collab = recommend(book_name)
-    recommended_books_content = content_based_recommender(book_name, df_books)
+    book_title = str(book_name)
+    if book_title in df_books['Book-Title'].values:
+        recommended_books_collab = recommend(book_name)
+        recommended_books_content = content_based_recommender(book_name, df_books)
 
-    if recommended_books_content is None:
-        recommended_books_content = []
+        if recommended_books_content is None:
+            recommended_books_content = []
 
-    recommended_books_collab_flat = list(itertools.chain.from_iterable(recommended_books_collab))
-    recommended_books_content_flat = list(itertools.chain.from_iterable(recommended_books_content))
+        recommended_books_collab_flat = list(itertools.chain.from_iterable(recommended_books_collab))
+        recommended_books_content_flat = list(itertools.chain.from_iterable(recommended_books_content))
 
-    recommended_books_collab_set = set(recommended_books_collab_flat)
-    recommended_books_content_set = set(recommended_books_content_flat)
+        recommended_books_collab_set = set(recommended_books_collab_flat)
+        recommended_books_content_set = set(recommended_books_content_flat)
 
-    combined_recommendations_set = recommended_books_collab_set.union(recommended_books_content_set)
+        combined_recommendations_set = recommended_books_collab_set.union(recommended_books_content_set)
 
-    number = num_recommendations
-    k = float(1 / number)
-    hybrid_scores = [1 - k * x for x in range(len(combined_recommendations_set))]
+        number = num_recommendations
+        k = float(1 / number)
+        hybrid_scores = [1 - k * x for x in range(len(combined_recommendations_set))]
 
-    dictISBN = {}
-    for x in recommended_books_collab_set:
-        if x in combined_recommendations_set:
-            dictISBN[x] = hybrid_scores[list(combined_recommendations_set).index(x)]
-
-    for x in recommended_books_content_set:
-        if x in combined_recommendations_set:
-            if x not in dictISBN:
+        dictISBN = {}
+        for x in recommended_books_collab_set:
+            if x in combined_recommendations_set:
                 dictISBN[x] = hybrid_scores[list(combined_recommendations_set).index(x)]
-            else:
-                dictISBN[x] += hybrid_scores[list(combined_recommendations_set).index(x)]
 
-    ISBN = dict(sorted(dictISBN.items(), key=lambda x: abs(x[1]), reverse=True))
+        for x in recommended_books_content_set:
+            if x in combined_recommendations_set:
+                if x not in dictISBN:
+                    dictISBN[x] = hybrid_scores[list(combined_recommendations_set).index(x)]
+                else:
+                    dictISBN[x] += hybrid_scores[list(combined_recommendations_set).index(x)]
 
-    recommended_books = list(ISBN.keys())
-    print("Recommended Books:\n")
-    bookList = []
-    for book in recommended_books:
-        if len(book) > 1:
-            if not book.endswith("jpg"):
-                print(book)
-                bookList.append(book)
-            if book in df_books['Book-Title'].values:
-                image_url = df_books[df_books['Book-Title'] == book]['Image-URL-M'].values[0]
-                print(image_url)
-                bookList.append(image_url)
+        ISBN = dict(sorted(dictISBN.items(), key=lambda x: abs(x[1]), reverse=True))
 
-    return bookList
+        recommended_books = list(ISBN.keys())
+        print("Recommended Books:\n")
+        bookList = []
+        for book in recommended_books:
+            if len(book) > 1:
+                if not book.endswith("jpg"):
+                    print(book)
+                    bookList.append(book)
+                if book in df_books['Book-Title'].values:
+                    image_url = df_books[df_books['Book-Title'] == book]['Image-URL-M'].values[0]
+                    print(image_url)
+                    bookList.append(image_url)
+
+        return bookList
+    
+    else:
+        return "Book not found"
 
 # Test the hybrid recommendation function
 book_name = '1st to Die: A Novel'
@@ -445,3 +450,7 @@ df_books["Year-Of-Publication"]
 
 df_books["Year-Of-Publication"].unique()
 
+
+# %%
+hybrid_recommendation("Classical Mythology")
+# %%

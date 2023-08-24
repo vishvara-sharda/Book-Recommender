@@ -14,7 +14,6 @@ function Recommender() {
     const handleChange = () => {
         const SearchBookTitle = BookTitle
         setSearchBookTitle(SearchBookTitle)
-        console.log("hello", SearchBookTitle)
     }
 
     return (

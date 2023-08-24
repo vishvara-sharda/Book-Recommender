@@ -12,7 +12,7 @@ function Top(props) {
     async function fetchData() {
       try {
         // Replace 'API_ENDPOINT' with your actual API URL
-        const response = await fetch('http://127.0.0.1:5001/api/top_books');
+        const response = await fetch('http://127.0.0.1:8000/api/top_books');
 
         if (!response.ok) {
           throw new Error('Network response was not ok');
